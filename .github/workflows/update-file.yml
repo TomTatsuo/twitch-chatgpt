@@ -2,8 +2,9 @@ name: Update File
 
 on:
   schedule:
-    - cron: ${{ secrets.UPDATE_TIME }}
+    - cron: '0 0 * * *'
 
+ 
 jobs:
   update:
     name: Update File
