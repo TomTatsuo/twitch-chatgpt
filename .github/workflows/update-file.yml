@@ -1,0 +1,20 @@
+name: Update file
+
+on:
+  schedule:
+    - cron: ${{ secrets.UPDATE_TIME }}
+
+jobs:
+  update:
+    name: Update file
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run script
+        run: |
+          cd scripts/
+          sh update_file.sh
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Update file"
