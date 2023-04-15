@@ -2,8 +2,7 @@ name: Update File
 
 on:
   workflow_dispatch:
-  # Inputs the workflow accepts.
-    inputs:
+ 
       schedule:
         - cron: '0 0 * * *'
 
