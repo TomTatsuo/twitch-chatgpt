@@ -12,4 +12,4 @@ sed -i "s/Date: .*/Date: $Date/" "$file_path"
 # Commit and push changes
 git add "$file_path"
 git commit -m "Update File"
-git push "https://${REPO_TOKEN}@github.com/${GITHUB_REPOSITORY}" HEAD:main
+git push origin --force
