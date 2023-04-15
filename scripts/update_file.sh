@@ -1,5 +1,10 @@
 #!/bin/bash
-TZ=Europe/Berlin date +"Date: %d.%m.%Y" > file_context.txt
-git add file_context.txt
-git commit -m "Update file_context.txt"
-git push
+
+# Pfad zur Textdatei
+file_path="path/to/file_context.txt"
+
+# Aktuelles Datum in Europäischer Zeit
+date=$(TZ="Europe/Berlin" date +"%d.%m.%Y")
+
+# Datum in Datei ersetzen
+sed -i "s/Date:.*/Date: $date/" "$file_path"
