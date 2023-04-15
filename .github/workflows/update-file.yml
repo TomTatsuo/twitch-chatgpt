@@ -1,7 +1,7 @@
 name: Update File
 
 on:
- 
+ jobs:
       schedule:
         - cron: '0 0 * * *'
 
