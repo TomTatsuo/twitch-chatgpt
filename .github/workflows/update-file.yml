@@ -1,4 +1,4 @@
-name: Update file
+name: Update File
 
 on:
   schedule:
@@ -17,4 +17,4 @@ jobs:
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "Update file"
+          commit_message: "Update File"
