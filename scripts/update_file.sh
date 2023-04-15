@@ -11,6 +11,6 @@ sed -i "s/Date:.*/Date: $Date/" "$file_path"
 
 # Commit and push changes
 git add "$file_path"
-git commit -m "Auto updating file_context.txt"
+git commit -m "file_context.txt"
 git fetch origin main
 git push "https://${REPO_TOKEN}@github.com/${GITHUB_REPOSITORY}" HEAD:main
