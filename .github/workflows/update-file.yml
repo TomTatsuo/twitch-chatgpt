@@ -2,7 +2,7 @@ name: Update File
 
 on:
   schedule:
-    - cron: '32 21 * * *' 
+    - cron: '34 21 * * *' 
  
 jobs:
   update:
