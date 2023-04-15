@@ -1,9 +1,8 @@
 name: Update File
 
 on:
- jobs:
-      schedule:
-        - cron: '0 0 * * *'
+   schedule:
+   - cron: '0 0 * * *'
 
 jobs:
   build:
