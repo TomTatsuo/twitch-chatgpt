@@ -7,4 +7,4 @@ file_path="file_context.txt"
 Date=$(TZ="Europe/Berlin" date +"%d.%m.%Y")
 
 # Datum in Datei ersetzen
-sed -i "s/Date:.*/Date: $date/" "$file_path"
+sed -i "s/Date:.*/Date: $Date/" "$file_path"
