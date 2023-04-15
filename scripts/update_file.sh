@@ -10,6 +10,7 @@ Date=$(TZ="Europe/Berlin" date +"%d.%m.%Y")
 sed -i "s/Date:.*/Date: $Date/" "$file_path"
 
 # Commit and push changes
+git config --global user.name "TomTatsuo"
 git add "$file_path"
 git commit -m "file_context.txt"
 git fetch origin main
