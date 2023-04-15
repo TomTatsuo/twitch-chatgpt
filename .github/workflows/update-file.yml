@@ -1,0 +1,17 @@
+name: Update File
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Run script
+      run: |
+        bash scripts/update_file.sh /twitch-chatgpt/file_context.txt
+      env:
+        TZ: Europe/Berlin
