@@ -7,7 +7,7 @@ file_path="twitch-chatgpt/file_context.txt"
 Date=$(TZ="Europe/Berlin" date +"%d.%m.%Y")
 
 # Datum in Datei ersetzen
-sed -i "s/Date:.*/Date: $Date/" "$file_path"
+sed -i "s/Date: .*/Date: $Date/" "$file_path"
 
 # Commit and push changes
 git add "$file_path"
