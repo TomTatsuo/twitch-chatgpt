@@ -9,7 +9,10 @@ jobs:
     name: Update File
     runs-on: ubuntu-latest
     steps:
-      - name: Run script
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Update File
         run: |
           # Pfad zur Textdatei
           file_path="file_context.txt"
@@ -20,8 +23,7 @@ jobs:
           # Datum in Datei ersetzen
           sed -i "s/Date:.*/Date: $Date/" "$file_path"
 
-          # Commit and push changes
-          git config --global user.name "Your Name"
-          git add "$file_path"
-          git commit -m "Update File"
-          git push
+      - name: Commit and Push Changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Update File"
