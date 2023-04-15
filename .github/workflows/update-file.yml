@@ -12,4 +12,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
       - name: Run script
+        env:
+          REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
         run: ./scripts/update_file.sh
