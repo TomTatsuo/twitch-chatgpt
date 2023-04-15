@@ -2,26 +2,14 @@ name: Update File
 
 on:
   schedule:
-    - cron: '50 21 * * *'
+    - cron: '57 21 * * *'
 
 jobs:
   update:
     name: Update File
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repo
+        uses: actions/checkout@v2
       - name: Run script
-        run: |
-          # Pfad zur Textdatei
-          file_path="twitch-chatgpt/file_context.txt"
-
-          # Aktuelles Datum in Europäischer Zeit
-          Date=$(TZ="Europe/Berlin" date +"%d.%m.%Y")
-
-          # Datum in Datei ersetzen
-          sed -i "s/Date:.*/Date: $Date/" "$file_path"
-
-          # Commit and push changes
-          git add "$file_path"
-          git commit -m "Update File"
-          git push
+        run: ./scripts/update_file.sh
