@@ -2,19 +2,26 @@ name: Update File
 
 on:
   schedule:
-    - cron: '34 21 * * *' 
- 
+    - cron: '0 0 * * *'
+
 jobs:
   update:
     name: Update File
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - name: Run script
         run: |
-          cd scripts/
-          sh update_file.sh
-      - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "Update File"
+          # Pfad zur Textdatei
+          file_path="file_context.txt"
+
+          # Aktuelles Datum in Europäischer Zeit
+          Date=$(TZ="Europe/Berlin" date +"%d.%m.%Y")
+
+          # Datum in Datei ersetzen
+          sed -i "s/Date:.*/Date: $Date/" "$file_path"
+
+          # Commit and push changes
+          git config --global user.name "Your Name"
+          git add "$file_path"
+          git commit -m "Update File"
+          git push
