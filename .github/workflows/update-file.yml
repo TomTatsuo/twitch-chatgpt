@@ -10,7 +10,7 @@ jobs:
     name: Update File
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: Run script
-        run: ./scripts/update_file.sh
+        shell: bash
+        run: ./scripts/update_file.sh arg1 arg2
