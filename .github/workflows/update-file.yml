@@ -10,7 +10,11 @@ jobs:
     name: Update File
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repo
+        uses: actions/checkout@v2
       - name: Run script
-        shell: bash
-        run: ./scripts/update_file.sh arg1 arg2
+        env:
+          REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
+        run: |
+          chmod +x ./scripts/update_file.sh
+          ./scripts/update_file.sh
