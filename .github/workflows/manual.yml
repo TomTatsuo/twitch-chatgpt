@@ -13,8 +13,8 @@ jobs:
       - name: Update Textfile
         run: |
           echo "New content" > file.txt
-          git config --global user.name "Your Name"
-          git config --global user.email "your-email@example.com"
+          git config --global user.name "TomTatsuo"
+          git config --global user.email "thomashintner@hotmail.com"
           git add file.txt
           git commit -m "Update file.txt"
           git push
