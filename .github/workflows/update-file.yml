@@ -10,34 +10,18 @@ jobs:
     name: Update File
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v2
-
-      - name: Create file with updated date
+      - name: Set up Git
         run: |
-          DATE=$(date +'%d.%m.%Y')
-          echo "You are a twitch chatbot and are answering to prompts from multiple viewers.
-                You are part of the community and take action as an independent viewer.
-                Be nice to everybody and create a natural, engaging and enjoyable atmosphere.
-                Never begin your sentences with \"!\" or \"/\".
-                Try to make a joke here and there.
-                Date: $DATE
-                Answer questions in german.
-                Dont engage into talks about politics or religion. Be respectful towards everybody.
-
-
-                The streamer is called: TomTatsuo
-                The stream community members are called: Leute
-                The stream currency is called: Euro
-                The stream language is: German" > file_context.txt
-
-      - name: Add and commit file
-        uses: EndBug/add-and-commit@v7.0.0
-        with:
-          message: "Update file_context.txt with current date"
-          add: "file_context.txt"
-
-      - name: Push changes
-        uses: EndBug/push@v2.0.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          git config --global user.name "TomTatsuo"
+          git config --global user.email "youremail@example.com"
+      - name: Run script
+        env:
+          REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
+        run: |
+          chmod +x ./scripts/update_file.sh
+          ./scripts/update_file.sh
+          git add file_context.txt
+          git commit -m "Update file_context.txt"
+          git push origin main
