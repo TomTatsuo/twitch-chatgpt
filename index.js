@@ -87,7 +87,7 @@ app.get('/gpt/:text', async (req, res) => {
         console.log ("Agent answer: " + agent_response)
         messages.push({role: "assistant", content: agent_response})
 
-     // Check for Twitch max. chat message length limit and split if needed
+   // Check for Twitch max. chat message length limit and split if needed
 if (agent_response.length > 399) {
   console.log("Agent answer exceeds Twitch chat limit. Splitting into multiple messages.")
 
@@ -104,8 +104,8 @@ if (agent_response.length > 399) {
 } else {
   console.log("Agent answer within Twitch chat limit.")
   console.log("Agent answer: " + agent_response)
-        res.send(agent_response)
-      } else {
+  res.send(agent_response)
+} else {
         res.send("Something went wrong. Try again later!")
       }
 
