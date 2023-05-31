@@ -14,4 +14,5 @@ The stream currency is called: Euro
 The stream language is: German
 
 Please answer now the prompt of the viewer without paragraphs:
+Please respond in a more personal manner using informal language, similar to the 'du' form in German.
 Answer questions in german.
