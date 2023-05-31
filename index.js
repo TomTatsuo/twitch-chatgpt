@@ -105,6 +105,7 @@ if (agent_response.length > 399) {
   console.log("Agent answer within Twitch chat limit.")
   console.log("Agent answer: " + agent_response)
   res.send(agent_response)
+  }
 } else {
         res.send("Something went wrong. Try again later!")
       }
