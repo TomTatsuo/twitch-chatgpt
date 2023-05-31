@@ -99,6 +99,9 @@ if (agent_response.length > 399) {
   for (let i = 0; i < chunks.length; i++) {
     console.log("Agent answer part " + (i + 1) + ": " + chunks[i])
 
+    // Remove newlines from each chunk
+    const chunkWithoutNewline = chunks[i].replace(/\n/g, '');
+
     // Add each chunk to the messages array
     messages.push(chunks[i])
   }
@@ -110,6 +113,10 @@ if (agent_response.length > 399) {
   res.end() // End the response after sending all the messages
 } else {
   console.log("Agent answer within Twitch chat limit.")
+  
+  // Remove newlines from the agent_response
+  const agentResponseWithoutNewline = agent_response.replace(/\n/g, '');
+  
   console.log("Agent answer: " + agent_response)
   res.send(agent_response)
   }
